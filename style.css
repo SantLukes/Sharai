@@ -1,0 +1,54 @@
+/* Wraper */
+
+.page-wraper {
+
+
+}
+
+.container {
+
+display: flex;    
+align-items: center;
+justify-content: space-between;
+
+}
+
+/* Header */
+
+.header {
+
+padding: 20px;
+
+
+}
+
+.logo-sharai {
+
+height: 40px;
+margin-right: 10px;
+
+}
+
+.nav-header {
+
+font-size: 24px;
+margin-right: auto;    
+margin-left: 10px;
+}
+
+.nav-menu {
+
+ list-style: none; /* Remove as bolinhas  */
+ display: flex;
+ gap: 20px; /* Espacamento entre linhas */
+ margin: 0px; 
+ padding: 0px;
+
+}
+
+.nav-menu li {
+
+font-size: 14px;
+cursor: pointer;
+
+}
