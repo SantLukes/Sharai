@@ -1,4 +1,10 @@
-/* Wraper */
+
+body {
+    
+background-color: rgb(61, 59, 59);
+
+}
+
 
 .page-wraper {
 
@@ -10,7 +16,8 @@
 display: flex;    
 align-items: center;
 justify-content: space-between;
-
+max-width: 1170px;
+margin: 0 auto;
 }
 
 /* Header */
@@ -24,17 +31,11 @@ padding: 20px;
 
 .logo-sharai {
 
-height: 40px;
-margin-right: 10px;
+width: 135.25px;
+height: 27.97px;
 
 }
 
-.nav-header {
-
-font-size: 24px;
-margin-right: auto;    
-margin-left: 10px;
-}
 
 .nav-menu {
 
@@ -43,12 +44,31 @@ margin-left: 10px;
  gap: 20px; /* Espacamento entre linhas */
  margin: 0px; 
  padding: 0px;
-
+ line-height: 18px;
+ letter-spacing: 2px;
+ font-size: 12px;
+ font-weight: 500;;
 }
 
 .nav-menu li {
 
 font-size: 14px;
 cursor: pointer;
+font-family: "Roboto" , sans-serif;
 
 }
+
+.nav-menu li a {
+
+text-decoration: none;
+color: white;
+}
+
+.nav-menu li a.menu-home {
+
+color: #C19B76;
+
+}
+
+
+/* Header */
