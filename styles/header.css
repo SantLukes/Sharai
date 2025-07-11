@@ -11,13 +11,17 @@ background-color: rgb(61, 59, 59);
 
 }
 
-.container {
+.container-header {
 
 display: flex;    
 align-items: center;
 justify-content: space-between;
 max-width: 1170px;
 margin: 0 auto;
+margin-left: 375px;
+margin-top: 10px;
+margin-right: 375px;
+
 }
 
 /* Header */
@@ -29,10 +33,12 @@ padding: 20px;
 
 }
 
-.logo-sharai {
+.logo-sharan {
 
-width: 135.25px;
-height: 27.97px;
+/* width: 135.25px; */
+/* height: 27.97px; */
+height: 36px;
+width: 174px;
 
 }
 
@@ -45,9 +51,9 @@ height: 27.97px;
  margin: 0px; 
  padding: 0px;
  line-height: 18px;
- letter-sp acing: 2px;
+ letter-spacing: 2px;
  font-size: 12px;
- font-weight: 500;;
+ font-weight: 500;
 }
 
 .nav-menu li {
