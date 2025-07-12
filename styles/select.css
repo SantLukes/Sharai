@@ -11,8 +11,9 @@
   margin-top: -40px;
 }
 
-.text-checkbox p {
+p.text-checkbox {
 
+margin-bottom: 10px;
 
 
 }
@@ -41,7 +42,6 @@
   letter-spacing: 0%;
   height: 21px;
   padding-bottom: 20px;
-
 }
 
 .input-entrada-saida {
@@ -146,5 +146,5 @@
   width: 102px;
   height: 40px;
   color: white;
-  margin-top: 40px;
+  margin-top: 60px;
 }
