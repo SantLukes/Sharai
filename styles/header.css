@@ -1,11 +1,11 @@
 
-body {
+* {
     
-background-color: rgb(61, 59, 59);
-height: 100%;
-margin: 0px;
-padding: 0px;
-
+/* background-color: rgb(61, 59, 59); */
+/* height: 100%; */
+margin: 0;
+padding: 0;
+/* background-color: red; */
 }
 
 
@@ -20,10 +20,11 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 max-width: 1170px;
-margin-left: 375px;
+/* margin-left: 375px; */
 margin-top: 10px;
-margin-right: 375px;
+/* margin-right: 375px; */
 height: 70px;
+margin: 0px auto;
 }
 
 /* Header */
@@ -34,7 +35,6 @@ padding: 20px;
 position: absolute;
 top: 0px;
 width: 100%;
-z-index: 1;
 }
 
 .logo-sharan {
@@ -51,7 +51,7 @@ width: 174px;
  list-style: none; /* Remove as bolinhas  */
  display: flex;
  gap: 20px; /* Espacamento entre linhas */
- margin: 0px auto; 
+ /* margin: 0px auto;  */
  padding: 0px;
  line-height: 18px;
  letter-spacing: 2px;
@@ -82,3 +82,16 @@ color: #C19B76;
 
 
 /* Header */
+
+
+/* Banner */
+
+.banner-sharai {
+
+height: 1208px;
+width: 100%;
+background-image: url("../Imagem/banner.png");
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+}
