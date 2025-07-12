@@ -1,12 +1,16 @@
-/* 
+
 body {
     
 background-color: rgb(61, 59, 59);
+height: 100%;
+margin: 0px;
+padding: 0px;
 
-} */
+}
 
 
-.page-wraper {
+.page-wrapper {
+
 
 
 }
@@ -16,12 +20,10 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 max-width: 1170px;
-margin: 0 auto;
 margin-left: 375px;
 margin-top: 10px;
 margin-right: 375px;
 height: 70px;
-
 }
 
 /* Header */
@@ -32,6 +34,7 @@ padding: 20px;
 position: absolute;
 top: 0px;
 width: 100%;
+z-index: 1;
 }
 
 .logo-sharan {
@@ -48,14 +51,13 @@ width: 174px;
  list-style: none; /* Remove as bolinhas  */
  display: flex;
  gap: 20px; /* Espacamento entre linhas */
- margin: 0px; 
+ margin: 0px auto; 
  padding: 0px;
  line-height: 18px;
  letter-spacing: 2px;
  font-size: 12px;
  font-weight: 500;
  color: #FFFFFF;
-
 }
 
 .nav-menu li {
