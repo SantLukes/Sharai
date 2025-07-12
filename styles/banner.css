@@ -1,8 +1,9 @@
-.banner-sharai {
+/* .banner-sharai {
 
 height: 1208px;
-width: 1928px;
+width: 100%;
+background-image: url("../images/banner-sharan.png");
+background-repeat: no-repeat;
 background-size: cover;
 background-position: center;
-z-index: 2;
-}
+} */
