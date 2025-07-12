@@ -1,9 +1,9 @@
-
+/* 
 body {
     
 background-color: rgb(61, 59, 59);
 
-}
+} */
 
 
 .page-wraper {
@@ -12,7 +12,6 @@ background-color: rgb(61, 59, 59);
 }
 
 .container-header {
-
 display: flex;    
 align-items: center;
 justify-content: space-between;
@@ -21,6 +20,7 @@ margin: 0 auto;
 margin-left: 375px;
 margin-top: 10px;
 margin-right: 375px;
+height: 70px;
 
 }
 
@@ -29,8 +29,9 @@ margin-right: 375px;
 .header {
 
 padding: 20px;
-
-
+position: absolute;
+top: 0px;
+width: 100%;
 }
 
 .logo-sharan {
@@ -44,7 +45,6 @@ width: 174px;
 
 
 .nav-menu {
-
  list-style: none; /* Remove as bolinhas  */
  display: flex;
  gap: 20px; /* Espacamento entre linhas */
@@ -54,6 +54,8 @@ width: 174px;
  letter-spacing: 2px;
  font-size: 12px;
  font-weight: 500;
+ color: #FFFFFF;
+
 }
 
 .nav-menu li {
