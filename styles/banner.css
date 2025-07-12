@@ -1,9 +1,8 @@
-.banner {
+.banner-sharai {
 
-/* width: 1920px;
-height: 1200px; */
-/* position: relative; */
-/* background-size: cover;
-background-position: center; */
-
+height: 1208px;
+width: 1928px;
+background-size: cover;
+background-position: center;
+z-index: 2;
 }
