@@ -1,81 +1,69 @@
+/* Header */
 
 * {
-    
-
-margin: 0;
-padding: 0;
+  margin: 0;
+  padding: 0;
+  /* background-color: red; */
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
 
 .header {
-
-background-image: url("../Imagem/banner.png");
-background-repeat: no-repeat;
-background-size: cover;
-height: 1208px;
-
+  background-image: url("../Imagem/banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 1208px;
+  width: 100%;
+  background-position: center;
 }
 
-
 .container-header {
-
-max-width: 1170px;
-margin: 0 auto;
-
+  max-width: 1170px;
+  margin: 0 auto;
 }
 
 .navbar {
-
-display: flex;
-justify-content: space-between;
-
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo-sharan {
-
-/* width: 135.25px; */
-/* height: 27.97px; */
-height: 36px;
-width: 174px;
-padding-top: 36px;
-
+  /* width: 135.25px; */
+  /* height: 27.97px; */
+  height: 36px;
+  width: 174px;
+  padding-top: 36px;
 }
 
-
 .nav-menu {
- list-style: none; /* Remove as bolinhas  */
- display: flex;
- gap: 20px; /* Espacamento entre linhas */
- /* margin: 0px auto;  */
- padding-top: 36px;
- line-height: 18px;
- letter-spacing: 2px;
- font-size: 12px;
- font-weight: 500;
- color: #FFFFFF;
+  list-style: none; /* Remove as bolinhas  */
+  display: flex;
+  gap: 20px; /* Espacamento entre linhas */
+  /* margin: 0px auto;  */
+  padding-top: 36px;
+  line-height: 18px;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
 }
 
 .nav-menu li {
-
-font-size: 14px;
-cursor: pointer;
-font-family: "Roboto" , sans-serif;
-
+  font-size: 14px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
 }
 
 .nav-menu li a {
-
-text-decoration: none;
-color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .nav-menu li a.menu-home {
-
-color: #C19B76;
-
+  color: #c19b76;
 }
 
-
 /* Header */
-
-
