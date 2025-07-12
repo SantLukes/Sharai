@@ -7,6 +7,14 @@
   margin: 0 auto;
   gap: 21px;
   justify-content: space-around;
+  padding-bottom: 20px;
+  margin-top: -40px;
+}
+
+.text-checkbox p {
+
+
+
 }
 
 .reserva {
@@ -32,6 +40,8 @@
   line-height: 21px;
   letter-spacing: 0%;
   height: 21px;
+  padding-bottom: 20px;
+
 }
 
 .input-entrada-saida {
@@ -57,6 +67,8 @@
   line-height: 21px;
   letter-spacing: 0%;
   height: 21px;
+  padding-bottom: 20px;
+
 }
 
 .select-quarto {
@@ -83,6 +95,8 @@
   line-height: 21px;
   letter-spacing: 0%;
   height: 21px;
+  padding-bottom: 20px;
+
 }
 
 .select-adulto {
@@ -109,6 +123,8 @@
   line-height: 21px;
   letter-spacing: 0%;
   height: 21px;
+  padding-bottom: 20px;
+
 }
 
 .select-crianca {
@@ -130,4 +146,5 @@
   width: 102px;
   height: 40px;
   color: white;
+  margin-top: 40px;
 }
