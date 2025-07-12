@@ -19,7 +19,7 @@
   width: 261px;
   height: 40px;
   position: relative;
-  /* /* right: 80px; */
+  left: 15px;
 }
 
 .entrada-saida {
@@ -40,4 +40,94 @@
 }
 .input-entrada-saida input {
   width: 50%;
+  border: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 40px;
+}
+
+.quarto {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  line-height: 21px;
+  letter-spacing: 0%;
+  height: 21px;
+}
+
+.select-quarto {
+  width: 164px;
+}
+
+.select-quarto select {
+  border: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 40px;
+  width: 100%;
+}
+
+.adulto {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  line-height: 21px;
+  letter-spacing: 0%;
+  height: 21px;
+}
+
+.select-adulto {
+  width: 164px;
+}
+
+.select-adulto select {
+  border: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 40px;
+  width: 100%;
+}
+
+.crianca {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  line-height: 21px;
+  letter-spacing: 0%;
+  height: 21px;
+}
+
+.select-crianca {
+  width: 164px;
+}
+
+.select-crianca select {
+  border: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 40px;
+  width: 100%;
+}
+
+.botao-enviar {
+  background-color: #262423;
+  width: 102px;
+  height: 40px;
+  color: white;
 }
