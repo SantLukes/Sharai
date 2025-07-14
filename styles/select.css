@@ -5,17 +5,15 @@
   width: 1146px;
   height: 111px;
   margin: 0 auto;
-  gap: 21px;
+  gap: 20px;
   justify-content: space-around;
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
+  padding: 15px;
   margin-top: -40px;
 }
 
 p.text-checkbox {
-
-margin-bottom: 10px;
-
-
+  margin-bottom: 10px;
 }
 
 .reserva {
@@ -68,7 +66,6 @@ margin-bottom: 10px;
   letter-spacing: 0%;
   height: 21px;
   padding-bottom: 20px;
-
 }
 
 .select-quarto {
@@ -96,7 +93,6 @@ margin-bottom: 10px;
   letter-spacing: 0%;
   height: 21px;
   padding-bottom: 20px;
-
 }
 
 .select-adulto {
@@ -124,7 +120,6 @@ margin-bottom: 10px;
   letter-spacing: 0%;
   height: 21px;
   padding-bottom: 20px;
-
 }
 
 .select-crianca {
