@@ -1,0 +1,41 @@
+.sobre {
+  width: 1920px;
+  height: 873px;
+  padding-top: 60px;
+}
+
+.texto-sobre h1 {
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 46px;
+  letter-spacing: 0%;
+  font-family: "DM Serif Text";
+  color: #d2d2d24d;
+}
+
+.texto-sobre h2 {
+  font-size: 40px;
+  font-family: "DM Serif Text";
+  letter-spacing: 0%;
+  line-height: 46px;
+  font-weight: 400;
+  color: #262423;
+}
+
+.p1-destaque {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  font-family: "DM Serif Text";
+  color: #262423;
+}
+
+.p2-texto {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  font-family: "Roboto";
+  color: #262423;
+}
