@@ -2,6 +2,10 @@
   width: 1920px;
   height: 873px;
   padding-top: 60px;
+  /* background-color: #FFFFFF; */
+}
+
+.container-sobre {
 }
 
 .texto-sobre h1 {
@@ -38,4 +42,9 @@
   letter-spacing: 0%;
   font-family: "Roboto";
   color: #262423;
+}
+
+.icones {
+  width: 269px;
+  height: 129px;
 }
