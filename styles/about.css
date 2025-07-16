@@ -2,7 +2,8 @@
   width: 1920px;
   height: 873px;
   padding-top: 60px;
-  /* background-color: #FFFFFF; */
+  /* background-color: red; */
+  margin-top: 60px;
 }
 
 .container-sobre {
@@ -15,6 +16,13 @@
   letter-spacing: 0%;
   font-family: "DM Serif Text";
   color: #d2d2d24d;
+}
+
+.linha-decorativa {
+  width: 80px;
+  height: 3px;
+  background-color: #c19b76;
+  margin-bottom: 30px;
 }
 
 .texto-sobre h2 {
@@ -31,7 +39,7 @@
   font-size: 20px;
   line-height: 26px;
   letter-spacing: 0%;
-  font-family: "DM Serif Text";
+  font-family: "DM Serif Text", serif;
   color: #262423;
 }
 
@@ -44,7 +52,14 @@
   color: #262423;
 }
 
+.container-icones {
+  display: flex;
+}
+
 .icones {
   width: 269px;
   height: 129px;
+  background-color: #f6f7f8;
+  margin-right: 24px;
+  margin-bottom: 30px;
 }
