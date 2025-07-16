@@ -1,12 +1,18 @@
 .sobre {
-  width: 1920px;
-  height: 873px;
   padding-top: 60px;
-  /* background-color: red; */
+  background-color: white;
   margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 .container-sobre {
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: flex-start; */
+  max-width: 1200px;
+  margin-left: 355px;
 }
 
 .texto-sobre h1 {
@@ -14,7 +20,7 @@
   font-weight: 400;
   line-height: 46px;
   letter-spacing: 0%;
-  font-family: "DM Serif Text";
+  font-family: "DM Serif Text", serif;
   color: #d2d2d24d;
 }
 
@@ -27,11 +33,12 @@
 
 .texto-sobre h2 {
   font-size: 40px;
-  font-family: "DM Serif Text";
+  font-family: "DM Serif Text", serif;
   letter-spacing: 0%;
   line-height: 46px;
   font-weight: 400;
   color: #262423;
+  margin-top: -40px;
 }
 
 .p1-destaque {
@@ -54,12 +61,40 @@
 
 .container-icones {
   display: flex;
+  gap: 24px;
 }
 
 .icones {
   width: 269px;
-  height: 129px;
   background-color: #f6f7f8;
-  margin-right: 24px;
   margin-bottom: 30px;
+  padding: 20px;
+  display: flex;
+  height: 129px;
+}
+
+.icones img {
+
+height: 68px;
+width: 60px;
+}
+
+.icones-texto h4{
+  font-family: "DM Serif Text", serif;
+  /* font-weight: 400; */
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: #262423;
+
+}
+
+.icones-texto p{
+  font-family: "DM Serif Text", serif;
+  /* font-weight: 400; */
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #7C7C7C;
+
 }
