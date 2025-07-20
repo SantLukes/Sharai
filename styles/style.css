@@ -2,3 +2,12 @@
 @import url(./select.css);
 @import url(./about.css);
 @import url(./option.css);
+
+body {
+  /* width: 100%; */
+  max-width: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
