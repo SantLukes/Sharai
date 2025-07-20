@@ -74,27 +74,38 @@
 }
 
 .icones img {
-
-height: 68px;
-width: 60px;
+  height: 68px;
+  width: 60px;
 }
 
-.icones-texto h4{
+.icones-texto h4 {
   font-family: "DM Serif Text", serif;
   /* font-weight: 400; */
   font-size: 20px;
   line-height: 26px;
   letter-spacing: 0%;
   color: #262423;
-
 }
 
-.icones-texto p{
+.icones-texto p {
   font-family: "DM Serif Text", serif;
   /* font-weight: 400; */
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0%;
-  color: #7C7C7C;
+  color: #7c7c7c;
+}
 
+.botao-about {
+  background-color: #c19b76;
+  width: 166px;
+  height: 43px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: 600;
+  letter-spacing: 0%;
+  font-family: "Roboto";
+  border: none;
 }
