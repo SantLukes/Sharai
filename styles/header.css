@@ -14,9 +14,10 @@ body {
 .header {
   background-image: url("../Imagem/banner.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
   height: 1208px;
-  width: 100%;
+  width: 1920px;
+  margin: 0 auto;
   background-position: center;
 }
 
