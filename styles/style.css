@@ -4,7 +4,7 @@
 @import url(./option.css);
 
 body {
-  /* width: 100%; */
+  width: 100%;
   max-width: auto;
   margin: 0 auto;
   display: flex;
