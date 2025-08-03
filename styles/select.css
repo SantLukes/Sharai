@@ -81,6 +81,7 @@ p.text-checkbox {
   border: 0;
   height: 40px;
   width: 100%;
+  padding-left: 10px;
 }
 
 .adulto {
@@ -108,6 +109,7 @@ p.text-checkbox {
   border: 0;
   height: 40px;
   width: 100%;
+  padding-left: 10px;
 }
 
 .crianca {
@@ -135,6 +137,7 @@ p.text-checkbox {
   border: 0;
   height: 40px;
   width: 100%;
+  padding-left: 10px;
 }
 
 .botao-enviar {
@@ -144,4 +147,5 @@ p.text-checkbox {
   color: white;
   margin-top: 60px;
   border: none;
+  cursor: pointer;
 }

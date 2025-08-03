@@ -1,0 +1,75 @@
+.footer {
+  background-color: #150e07;
+  max-width: 1920px;
+  height: 473px;
+  margin: 0 auto;
+}
+
+.container-footer {
+  padding-top: 50px;
+  padding-left: 375px;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.footer-initial-text {
+  width: 561px;
+  height: 56px;
+  border-right: 1px solid #dddddd;
+}
+
+.footer-initial-text h4 {
+  width: 304px;
+  height: 26px;
+  font-family: "DM Serif Text";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: #ffffff;
+}
+
+.footer-initial-text p {
+  width: 430px;
+  height: 20px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #999999;
+}
+
+.input-footer {
+  display: flex;
+  overflow: hidden;
+  padding-bottom: 60px;
+}
+
+.input-footer input {
+  width: 417px;
+  height: 51px;
+  border: 1px solid #eeeeee;
+  margin-left: 25px;
+  padding-left: 13px;
+  padding-bottom: 3px;
+}
+
+.botao-email-footer {
+  background-color: #c19b76;
+  border: none;
+  color: #ffffff;
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 23px;
+  letter-spacing: 0%;
+  padding: 16px 55px 17px 30px;
+}
+
+.barra-central-footer {
+  width: 1146px;
+  height: 1px;
+  background-color: #d3d3d3;
+  margin: 0 auto;
+}
