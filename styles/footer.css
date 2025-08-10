@@ -65,11 +65,156 @@
   line-height: 23px;
   letter-spacing: 0%;
   padding: 16px 55px 17px 30px;
+  cursor: pointer;
 }
 
 .barra-central-footer {
   width: 1146px;
+  /* width: 61%; */
   height: 1px;
   background-color: #d3d3d3;
   margin: 0 auto;
+}
+
+.container-desc-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.desc-footer {
+  margin-left: -60px;
+  margin-right: 13px;
+}
+
+.desc-footer img {
+  width: 170px;
+  height: 35px;
+  margin-bottom: 22px;
+  margin-top: 36px;
+}
+
+.desc-footer p {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #999999;
+  margin-bottom: 24px;
+  padding-right: 40px;
+}
+
+.footer-icons a img {
+  height: 28px;
+  width: 26px;
+  margin-right: 3px;
+}
+
+.desc-footer-links {
+  padding-right: 238px;
+}
+
+.desc-footer-links h4 {
+  font-family: "DM Serif Text";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: white;
+  margin-bottom: 21px;
+  margin-top: 30px;
+}
+
+.desc-footer-links ul li {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.desc-footer-links ul li a {
+  text-decoration: none;
+  font: "Roboto";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #999999;
+}
+
+.desc-footer-acomodacoes {
+  padding-right: 120px;
+}
+
+.desc-footer-acomodacoes h4 {
+  font-family: "DM Serif Text";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 21px;
+}
+
+.desc-footer-acomodacoes ul li {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.desc-footer-acomodacoes ul li a {
+  list-style: none;
+  text-decoration: none;
+  font: "Roboto";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #999999;
+}
+
+.desc-footer-faleconosco h4 {
+  font-family: "DM Serif Text";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: white;
+  margin-top: 30px;
+  margin-bottom: 21px;
+}
+
+.desc-footer-faleconosco ul li {
+  list-style: none;
+  text-decoration: none;
+  font: "Roboto";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #999999;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.desc-footer-faleconosco-icons {
+  width: 14px;
+  height: 14px;
+}
+
+.footer-end {
+  background-color: #0d0904;
+  padding-top: 22px ;
+  padding-bottom: 22px;
+
+}
+
+.footer-end p {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #B7B7B7;
+  text-align: center;
 }
