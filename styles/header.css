@@ -1,7 +1,6 @@
 /* Header */
 
 * {
-
   /* background-color: red; */
 }
 
@@ -14,11 +13,12 @@ body {
   background-image: url("../Imagem/banner.png");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 1208px;
-  width: 1920px;
+  /* height: 1200px; */
+  max-width: 1920px;
   margin: 0 auto;
   background-position: center;
   width: 100%;
+  aspect-ratio: 16/9;
 }
 
 .container-header {
@@ -42,8 +42,6 @@ body {
 .nav-menu {
   list-style: none; /* Remove as bolinhas  */
   display: flex;
-  gap: 20px; /* Espacamento entre linhas */
-  /* margin: 0px auto;  */
   padding-top: 36px;
   line-height: 18px;
   letter-spacing: 2px;
@@ -52,10 +50,16 @@ body {
   color: #ffffff;
 }
 
+.nav-menu li:hover {
+  background-color: grey;
+  transition: 300ms;
+}
+
 .nav-menu li {
   font-size: 14px;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
+  padding: 12px;
 }
 
 .nav-menu li a {
