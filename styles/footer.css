@@ -1,15 +1,15 @@
 .footer {
   background-color: #150e07;
   max-width: 1920px;
-  height: 473px;
   margin: 0 auto;
 }
 
 .container-footer {
   padding-top: 50px;
-  padding-left: 375px;
   padding-bottom: 10px;
   display: flex;
+  margin: auto;
+  width: fit-content;
 }
 
 .footer-initial-text {
@@ -47,12 +47,12 @@
 }
 
 .input-footer input {
-  width: 417px;
+  width: 455px;
   height: 51px;
   border: 1px solid #eeeeee;
   margin-left: 25px;
   padding-left: 13px;
-  padding-bottom: 3px;
+  height: 53px;
 }
 
 .botao-email-footer {
@@ -64,13 +64,13 @@
   font-size: 16px;
   line-height: 23px;
   letter-spacing: 0%;
-  padding: 16px 55px 17px 30px;
   cursor: pointer;
+  height: 53px;
+  width: 105px;
 }
 
 .barra-central-footer {
   width: 1146px;
-  /* width: 61%; */
   height: 1px;
   background-color: #d3d3d3;
   margin: 0 auto;
@@ -80,11 +80,13 @@
   display: flex;
   justify-content: center;
   margin-bottom: 0;
+  gap: 24px;
+  padding-bottom: 30px;
 }
 
 .desc-footer {
-  margin-left: -60px;
-  margin-right: 13px;
+  /* margin-left: -60px; */
+  /* margin-right: 13px; */
 }
 
 .desc-footer img {
