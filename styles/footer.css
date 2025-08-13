@@ -79,6 +79,7 @@
 .container-desc-footer {
   display: flex;
   justify-content: center;
+  margin-bottom: 0;
 }
 
 .desc-footer {
@@ -100,7 +101,6 @@
   line-height: 20px;
   letter-spacing: 0%;
   color: #999999;
-  margin-bottom: 24px;
   padding-right: 40px;
 }
 
@@ -204,9 +204,8 @@
 
 .footer-end {
   background-color: #0d0904;
-  padding-top: 22px ;
+  padding-top: 22px;
   padding-bottom: 22px;
-
 }
 
 .footer-end p {
@@ -215,6 +214,6 @@
   font-size: 13px;
   line-height: 20px;
   letter-spacing: 0%;
-  color: #B7B7B7;
+  color: #b7b7b7;
   text-align: center;
 }
