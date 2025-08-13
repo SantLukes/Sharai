@@ -7,14 +7,6 @@
   gap: 12px;
 }
 
-.container-sobre {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: flex-start; */
-  max-width: 1200px;
-  /* margin-left: 18.5%; */
-}
-
 .texto-sobre h1 {
   font-size: 100px;
   font-weight: 400;
@@ -64,6 +56,7 @@
 .container-icones {
   display: flex;
   gap: 24px;
+  margin-bottom: 30px;
 }
 
 .icones {
