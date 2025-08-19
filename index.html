@@ -79,7 +79,7 @@
           </div>
         </div>
         <!-- <div></div> -->
-         <button class="botao-enviar">ENVIAR</button>
+        <button class="botao-enviar">ENVIAR</button>
       </div>
       <div class="sobre">
         <div class="container-sobre">
@@ -175,7 +175,7 @@
         <div class="container-option">
           <div class="acomodacoes-option">
             <div class="container-imagem-option">
-              <img src="./Imagem/casal01.png"/>
+              <img src="./Imagem/casal01.png" />
             </div>
             <div>
               <p class="option-preco">R$ 299,00/NOITE</p>
@@ -258,13 +258,26 @@
             </p>
           </div>
           <div class="input-footer">
-            <input
-              type="email"
-              name="email"
-              placeholder="DIGITE SEU EMAIL"
-              required
-            />
-            <div><button class="botao-email-footer">ENVIAR</button></div>
+            <form id="formulario-newsletter">
+              <input
+                id="email-newsletter-validacao"
+                type="text"
+                name="email"
+                placeholder="DIGITE SEU EMAIL"
+              />
+              <div><button class="botao-email-footer">ENVIAR</button></div>
+            </form>
+            <div id="mensagem-validacao-sucesso" class="hidden">
+              <div class="mensagem-modal">
+                <p>E-mail cadastrado com sucesso</p>
+              </div>
+            </div>
+
+            <div id="mensagem-validacao-erro" class="hidden">
+              <div class="mensagem-modal">
+                <p>E-mail inválido</p>
+              </div>
+            </div>
           </div>
         </div>
         <div class="barra-central-footer"></div>
@@ -364,5 +377,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="scripts.js"></script>
   </body>
 </html>
