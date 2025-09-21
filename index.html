@@ -9,6 +9,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
@@ -79,7 +86,7 @@
           </div>
         </div>
         <!-- <div></div> -->
-         <button class="botao-enviar">ENVIAR</button>
+        <button class="botao-enviar">ENVIAR</button>
       </div>
       <div class="sobre">
         <div class="container-sobre">
@@ -175,7 +182,7 @@
         <div class="container-option">
           <div class="acomodacoes-option">
             <div class="container-imagem-option">
-              <img src="./Imagem/casal01.png"/>
+              <img src="./Imagem/casal01.png" />
             </div>
             <div>
               <p class="option-preco">R$ 299,00/NOITE</p>
@@ -258,13 +265,26 @@
             </p>
           </div>
           <div class="input-footer">
-            <input
-              type="email"
-              name="email"
-              placeholder="DIGITE SEU EMAIL"
-              required
-            />
+            <input type="email" name="email" placeholder="DIGITE SEU EMAIL" />
             <div><button class="botao-email-footer">ENVIAR</button></div>
+          </div>
+
+          <div class="modal-confirmacao">
+            <div class="modal-content">
+              <h3 class="modal-content">Inscrição realizada com sucesso!</h3>
+              <button class="close-modal" type="button" data-modal="modal-1">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-erro">
+            <div class="modal-content">
+              <h3 class="modal-content">Email inválido. Tente novamente.</h3>
+              <button class="close-modal" type="button" data-modal="modal-1">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
           </div>
         </div>
         <div class="barra-central-footer"></div>
@@ -364,5 +384,6 @@
         </div>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
