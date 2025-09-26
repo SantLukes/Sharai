@@ -1,3 +1,5 @@
+// Validacão de e-mail Newsletter
+
 document.addEventListener("DOMContentLoaded", function () {
   const botao = document.querySelector(".botao-email-footer");
   const inputEmail = document.querySelector("input[name='email']");
@@ -11,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function mostrarModal(modal) {
-    modal.style.display = "block";
+    modal.style.display = "flex";
   }
 
   function esconderModal(modal) {
@@ -66,3 +68,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// Validacão de e-mail Newsletter
