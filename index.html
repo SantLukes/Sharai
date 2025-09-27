@@ -38,55 +38,57 @@
       </div>
     </div>
     <main>
-      <div class="select-sharan">
-        <p class="reserva">Reserva</p>
-        <div class="entrada-saida">
-          <p class="text-checkbox">Entrada/Saída</p>
-          <div class="input-entrada-saida">
-            <input type="text" placeholder="➜ Entrada" /><br />
-            <input type="text" placeholder="➜ Saída" /><br />
+      <div>
+        <form action="processa_reserva.php" method="POST" class="select-sharan">
+          <p class="reserva">Reserva</p>
+          <div class="entrada-saida">
+            <p class="text-checkbox">Entrada/Saída</p>
+            <div class="input-entrada-saida">
+              <input type="text" placeholder="➜ Entrada" /><br />
+              <input type="text" placeholder="➜ Saída" /><br />
+            </div>
           </div>
-        </div>
 
-        <div class="quarto">
-          <p class="text-checkbox">Quarto</p>
-          <div class="select-quarto">
-            <select type="text" placeholder="Quarto">
-              <br />
-              <option value="1">Quarto</option>
-              <option value="1">Casa 01</option>
-              <option value="2">Solteiro 01</option>
-              <option value="3">Casal 02</option>
-            </select>
+          <div class="quarto">
+            <p class="text-checkbox">Quarto</p>
+            <div class="select-quarto">
+              <select type="text" placeholder="Quarto">
+                <br />
+                <option value="1">Quarto</option>
+                <option value="1">Casa 01</option>
+                <option value="2">Solteiro 01</option>
+                <option value="3">Casal 02</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        <div class="adulto">
-          <p class="text-checkbox">Adulto</p>
-          <div class="select-adulto">
-            <select type="text" placeholder="Adulto">
-              <br />
-              <option value="1">Adulto</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
+          <div class="adulto">
+            <p class="text-checkbox">Adulto</p>
+            <div class="select-adulto">
+              <select type="text" placeholder="Adulto">
+                <br />
+                <option value="1">Adulto</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="crianca">
-          <p class="text-checkbox">Criança</p>
-          <div class="select-crianca">
-            <select type="text" placeholder="Criança">
-              <br />
-              <option value="1">Criança</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
+          <div class="crianca">
+            <p class="text-checkbox">Criança</p>
+            <div class="select-crianca">
+              <select type="text" placeholder="Criança">
+                <br />
+                <option value="1">Criança</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <!-- <div></div> -->
-        <button class="botao-enviar">ENVIAR</button>
+          <!-- <div></div> -->
+          <button type="submit" class="botao-enviar">ENVIAR</button>
+        </form>
       </div>
       <div class="sobre">
         <div class="container-sobre">
@@ -264,9 +266,15 @@
               Never Miss Anything From Construx By Signing Up To Our Newsletter.
             </p>
           </div>
-          <div class="input-footer">
-            <input type="email" name="email" placeholder="DIGITE SEU EMAIL" />
-            <div><button class="botao-email-footer">ENVIAR</button></div>
+          <div>
+            <form
+              action="processa_newsletter.php"
+              method="POST"
+              class="input-footer"
+            >
+              <input type="email" name="email" placeholder="DIGITE SEU EMAIL" />
+              <div><button class="botao-email-footer">ENVIAR</button></div>
+            </form>
           </div>
 
           <div class="modal-confirmacao">
