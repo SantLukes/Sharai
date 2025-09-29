@@ -16,6 +16,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
   </head>
 
   <body>
@@ -28,11 +34,11 @@
             class="logo-sharan"
           />
           <ul class="nav-menu">
-            <li><a href="#" class="menu-home">HOME</a></li>
+            <li><a href="./index.html" class="menu-home">HOME</a></li>
             <li><a href="#">POST DETAIL</a></li>
             <li><a href="#">PAGES</a></li>
             <li><a href="#">PROJECTS</a></li>
-            <li><a href="#">SHORTCODES</a></li>
+            <li><a href="./quartos.php">FORMULÁRIO</a></li>
           </ul>
         </div>
       </div>
@@ -44,8 +50,8 @@
           <div class="entrada-saida">
             <p class="text-checkbox">Entrada/Saída</p>
             <div class="input-entrada-saida">
-              <input type="text" placeholder="➜ Entrada" /><br />
-              <input type="text" placeholder="➜ Saída" /><br />
+              <input type="text" name="entrada" placeholder="➜ Entrada" /><br />
+              <input type="text" name="saida" placeholder="➜ Saída" /><br />
             </div>
           </div>
 
@@ -111,7 +117,7 @@
           </div>
           <div class="container-icones">
             <div class="icones">
-              <img src="/Imagem/restaurante.png" />
+              <img src="Imagem/restaurante.png" />
               <div class="icones-texto">
                 <h4>Restaurante</h4>
                 <p>
@@ -122,7 +128,7 @@
             </div>
 
             <div class="icones">
-              <img src="/Imagem/spa.png" />
+              <img src="Imagem/spa.png" />
               <div class="icones-texto">
                 <h4>Wellness & Spa</h4>
                 <p>
@@ -134,7 +140,7 @@
           </div>
           <div class="container-icones">
             <div class="icones">
-              <img src="/Imagem/wifi.png" />
+              <img src="Imagem/wifi.png" />
 
               <div class="icones-texto">
                 <h4>Free Wifi</h4>
@@ -146,7 +152,7 @@
             </div>
 
             <div class="icones">
-              <img src="/Imagem/jogos.png" />
+              <img src="Imagem/jogos.png" />
 
               <div class="icones-texto">
                 <h4>Espaco de jogos</h4>
@@ -161,7 +167,7 @@
         </div>
 
         <div>
-          <div><img src="/Imagem/backabout.png" class="img-backabout" /></div>
+          <div><img src="Imagem/backabout.png" class="img-backabout" /></div>
         </div>
       </div>
 
@@ -271,9 +277,10 @@
               action="processa_newsletter.php"
               method="POST"
               class="input-footer"
+              id="newsletter-form"
             >
               <input type="email" name="email" placeholder="DIGITE SEU EMAIL" />
-              <div><button class="botao-email-footer">ENVIAR</button></div>
+              <div><button type="submit" class="botao-email-footer">ENVIAR</button></div>
             </form>
           </div>
 
