@@ -1,0 +1,66 @@
+GERAL
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* CONTAINER PRINCIPAL (engloba tudo) */
+.tela {
+    display: flex; /* coloca menu e conteúdo lado a lado */
+}
+
+/* MENU LATERAL */
+.menu-lateral {
+    width: 220px;
+    height: 100vh; /* ocupa toda a altura da tela */
+    background-color: #150e07;
+    padding-top: 20px;
+    position: fixed; /* fica fixo na esquerda */
+}
+
+.menu-lateral .titulo-menu {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.menu-lateral a {
+    display: block; /* faz cada link ocupar uma linha */
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+}
+
+.menu-lateral a:hover {
+    background-color: #495057;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.conteudo {
+    margin-left: 220px; 
+    padding: 20px;
+    width: 100%;
+}
+
+/* TOPO (linha com título e botão sair) */
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ÁREA DA TABELA */
+.area-tabela {
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
