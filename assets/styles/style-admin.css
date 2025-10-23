@@ -2,3 +2,9 @@
 @import url(./dashboard-admin.css);
 @import url(./cadastro-quarto.css);
 @import url(./quartos-admin.css);
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f9fa;
+}

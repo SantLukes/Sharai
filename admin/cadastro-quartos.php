@@ -4,34 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Cadastro de quartos</title>
+    <title>Admin - Cadastro de Quartos</title>
+    
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="./styles/style-admin.css">
-    <script src="script.js" defer></script>
+
+    <link rel="stylesheet" href="../assets/styles/style-admin.css">
+    <script src="../assets/js/admin-script.js" defer></script>
 
 </head>
 
 <body>
 
-    <div class="menu-lateral">
-        <h2 class="titulo-menu">Sharan Admin</h2>
-        <a href="#">Dashboard</a>
-        <a href="#">Quartos</a>
-        <a href="#">Reservas</a>
-        <a href="#">Usuários</a>
-    </div>
+    <div class="tela">
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <div class="conteudo-pagina">
-        <div class="container">
-            <h1 class="titulo-pagina mb-4">Cadastro de Quartos</h1>
+        <div class="menu-lateral">
+            <img src="../assets/Imagem/sharai-logo.png" alt="Logo Sharan">
+            <a href="../index.php">Dashboard</a>
+            <a href="quartos.php" class="ativo">Quartos</a>
+            <a href="reservas.php">Reservas</a>
+            <a href="usuarios.php">Usuários</a>
+            <p>Para encerrar a sessão, clique no botão abaixo.</p>
+            <a href="logout.php">Sair</a> 
+        </div>
 
-            <div class="caixa-formulario shadow p-4 rounded">
-                <form action="processa_cadastro.php" method="POST">
+        <div class="conteudo">
+            <div class="topo">
+                <h4>Painel Administrativo</h4>
+                <div>
+                    <span class="me-3">Olá, Admin</span>
+                </div>
+            </div>
+
+            <div class="caixa-formulario shadow p-4 rounded mt-4">
+                
+                <h3 class="mb-4">Cadastro de Quartos</h3>
+
+                <form action="../actions/processa_cadastro.php" method="POST">
 
                     <div class="mb-3">
                         <label for="numero" class="form-label">Número do Quarto</label>
@@ -58,20 +70,22 @@
                     </div>
 
                     <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="disponibilidade" name="disponibilidade" value="1">
-                        <label class="form-check-label" for="disponibilidade">Quarto Ativo</label>
+                        <input type="checkbox" class="form-check-input" id="ativo" name="ativo" value="1">
+                        <label class="form-check-label" for="ativo">Quarto Ativo</label>
                     </div>
 
-                    <div class="botoes">
-                        <button type="submit" class="btn btn-salvar">Cadastrar</button>
-                        <button type="reset" class="btn btn-cancelar">Cancelar</button>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary botao-adicionar">Cadastrar</button>
+                        
+                        <a href="quartos.php" class="btn btn-secondary">Cancelar</a>
                     </div>
                 </form>
             </div>
+            
         </div>
     </div>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

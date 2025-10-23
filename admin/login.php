@@ -10,8 +10,10 @@
         rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
         crossorigin="anonymous" />
-    <link rel="stylesheet" href="./styles/style-admin.css">
-    <script src="admin-script.js" defer></script>
+    
+    <link rel="stylesheet" href="../assets/styles/style-admin.css">
+    
+    <script src="../assets/js/admin-script.js" defer></script>
 
 </head>
 
@@ -22,7 +24,7 @@
         <div class="lado-esquerdo">
 
             <div class="logo-login">
-                <img src=" ./Imagem/sharai-logo.png" alt="Logo Sharan Admin">
+                <img src="../assets/Imagem/sharai-logo.png" alt="Logo Sharan Admin">
             </div>
 
             <div class="texto-login">
@@ -37,7 +39,7 @@
             <div class="caixa-login shadow">
                 <h3 class="mb-4 text-center">Entrar na conta</h3>
 
-                <form action="validar_login.php" method="POST" id="login-form">
+                <form action="../actions/validar_login.php" method="POST" id="login-form" novalidate>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">E-mail</label>
