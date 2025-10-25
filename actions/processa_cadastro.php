@@ -1,24 +1,35 @@
 <?php
-// processa_cadastro.php
-require_once './config/conexao.php';
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    die('Acesso negado.');
+}
+
+require_once '../includes/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $numero = $_POST['numero'] ?? '';
     $tipo = $_POST['tipo'] ?? '';
     $preco = $_POST['preco'] ?? '';
     $descricao = $_POST['descricao'] ?? '';
-    $ativo = isset($_POST['disponibilidade']) ? 1 : 0;
+    $ativo = isset($_POST['ativo']) ? 1 : 0;
     $created_at = date('Y-m-d H:i:s');
 
+
     if ($numero && $tipo && $preco && $descricao) {
+
         try {
-            $conexao = new Conexao();
-            $pdo = $conexao->getPdo();
-            $stmt = $pdo->prepare('INSERT INTO quartos (numero, tipo, preco, descricao, ativo, created_at) VALUES (?, ?, ?, ?, ?, ?)');
-            $stmt->execute([$numero, $tipo, $preco, $descricao, $ativo, $created_at]);
-            header('Location: quartos.php?sucesso=1');
+
+            $sql = "INSERT INTO quartos (numero, tipo, preco, descricao, ativo, `created_at`) VALUES (?, ?, ?, ?, ?, ?)";
+
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("sssiss", $numero, $tipo, $preco, $descricao, $ativo, $created_at);
+            $stmt->execute();
+            $stmt->close();
+            $conn->close();
+
+            header('Location: ../admin/quartos.php?sucesso=1');
             exit();
-        } catch (PDOException $e) {
+        } catch (Exception $e) {
             echo 'Erro ao cadastrar quarto: ' . $e->getMessage();
         }
     } else {

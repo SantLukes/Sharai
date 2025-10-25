@@ -3,16 +3,9 @@
 header('Content-Type: application/json');
 session_start();
 
-// ======== 1. CONEXÃO COM O BANCO ========
-// 
-// CAMINHO CORRETO (com base no seu print):
-// Sobe de 'actions/' (../) -> entra em 'includes/'
-//
+
 include '../includes/conexao.php';
-// A variável $conn (com a conexão) agora existe.
 
-
-// ======== 2. CONFIGURAÇÃO DAS TABELAS ========
 $tabela_usuarios = "usuarios";
 $coluna_email = "email";
 $coluna_senha = "senha";
@@ -20,7 +13,7 @@ $coluna_nome = "nome";
 
 $resposta = [];
 
-// ======== 3. LÓGICA DO LOGIN ========
+
 
 try {
     if ($conn->connect_error) {
@@ -48,26 +41,19 @@ try {
         $hash_do_banco = $usuario[$coluna_senha];
 
         if (password_verify($senha_digitada, $hash_do_banco)) {
-            // Senha CORRETA!
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['usuario_nome'] = $usuario[$coluna_nome];
 
             $resposta['status'] = 'success';
-            
-            // 
-            // CAMINHO CORRETO (com base no seu print):
-            // Sobe de 'actions/' (../) -> entra em 'admin/'
-            //
-            $resposta['redirect_url'] = '../admin/dashboard.php';
-        
+
+
+            $resposta['redirect_url'] = '../index.php';
         } else {
-            // Senha Incorreta
             $resposta['status'] = 'error';
             $resposta['field'] = 'senha';
             $resposta['message'] = 'Senha incorreta.';
         }
     } else {
-        // E-mail NÃO ENCONTRADO
         $resposta['status'] = 'error';
         $resposta['field'] = 'email';
         $resposta['message'] = 'E-mail não encontrado.';
@@ -81,6 +67,5 @@ try {
     $resposta['message'] = 'Erro no servidor: ' . $e->getMessage();
 }
 
-// ======== 4. RESPONDE PARA O JAVASCRIPT ========
 echo json_encode($resposta);
 exit;
