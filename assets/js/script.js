@@ -1,72 +1,110 @@
-// Validacão de e-mail Newsletter
-
 document.addEventListener("DOMContentLoaded", function () {
-  const botao = document.querySelector(".botao-email-footer");
-  const inputEmail = document.querySelector("input[name='email']");
-  const modalSucesso = document.querySelector(".modal-confirmacao");
+  console.log("[SCRIPT] Iniciado");
+
+  const botaoVerificar = document.getElementById(
+    "botao-verificar-disponibilidade"
+  );
   const modalErro = document.querySelector(".modal-erro");
-  const closeButtons = document.querySelectorAll(".close-modal");
-  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const mensagemErro = modalErro?.querySelector(".mensagem-erro");
+  const botaoErroFechar = modalErro?.querySelector(".botao-erro-fechar");
+  const modalHospede = document.querySelector(".modal-hospede");
+  const formFinalizarReserva = document.querySelector(
+    ".formulario-finalizar-reserva"
+  );
 
-  function validarEmail(email) {
-    return regexEmail.test(email);
+  let podeMostrarErro = false;
+
+  function esconderErro() {
+    if (!modalErro) return;
+    modalErro.classList.remove("visivel");
+    console.log("[ERRO] Modal escondida");
   }
 
-  function mostrarModal(modal) {
-    modal.style.display = "flex";
+  function mostrarErro(msg) {
+    if (mensagemErro) mensagemErro.textContent = msg || "Ocorreu um erro.";
+    modalErro.classList.add("visivel");
+    console.log("[ERRO] Modal exibida:", msg);
   }
 
-  function esconderModal(modal) {
-    modal.style.display = "none";
-  }
+  botaoErroFechar?.addEventListener("click", () => {
+    console.log("[ERRO] Clique no botão OK detectado");
+    esconderErro();
+  });
 
-  function limparFormulario() {
-    inputEmail.value = "";
-  }
-
-  botao.addEventListener("click", function (event) {
-    event.preventDefault();
-
-    const email = inputEmail.value.trim();
-
-    if (email === "") {
-      console.error("Erro: Campo de e-mail está vazio.");
-      mostrarModal(modalErro);
-    } else if (!validarEmail(email)) {
-      console.error("Erro: Formato de e-mail inválido. Email digitado:", email);
-      mostrarModal(modalErro);
-    } else {
-      console.log("Sucesso: E-mail válido. Inscrição realizada para:", email);
-      limparFormulario();
-      mostrarModal(modalSucesso);
+  modalErro?.addEventListener("click", (e) => {
+    if (e.target === modalErro) {
+      console.log("[ERRO] Clique fora da modal detectado");
+      esconderErro();
     }
   });
 
-  // Event listeners para fechar os modais
-  closeButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      esconderModal(modalSucesso);
-      esconderModal(modalErro);
-    });
+  function mostrarModalHospede() {
+    modalHospede?.classList.add("visivel");
+  }
+  function esconderModalHospede() {
+    modalHospede?.classList.remove("visivel");
+  }
+
+  modalHospede?.addEventListener("click", (e) => {
+    if (e.target === modalHospede) esconderModalHospede();
+  });
+  modalHospede
+    ?.querySelector(".modal-fechar")
+    ?.addEventListener("click", esconderModalHospede);
+  modalHospede
+    ?.querySelector(".modal-cancelar")
+    ?.addEventListener("click", esconderModalHospede);
+
+  botaoVerificar?.addEventListener("click", function () {
+    podeMostrarErro = true;
+
+    const entrada =
+      document.getElementById("reserva-entrada")?.value.trim() || "";
+    const saida = document.getElementById("reserva-saida")?.value.trim() || "";
+    const quarto =
+      document.getElementById("reserva-quarto")?.value.trim() || "";
+    const adultos =
+      document.getElementById("reserva-adultos")?.value.trim() || "";
+    const criancas =
+      document.getElementById("reserva-criancas")?.value.trim() || "";
+
+    if (!entrada || !saida || !quarto || !adultos || criancas === "") {
+      mostrarErro("Preencha todos os campos antes de continuar!");
+      return;
+    }
+
+    const checkin = new Date(entrada + "T00:00:00");
+    const checkout = new Date(saida + "T00:00:00");
+    const hoje = new Date();
+    hoje.setHours(0, 0, 0, 0);
+
+    if (checkin < hoje) {
+      mostrarErro("A data de entrada não pode ser anterior a hoje!");
+      return;
+    }
+    if (checkout <= checkin) {
+      mostrarErro("A data de saída deve ser posterior à data de entrada!");
+      return;
+    }
+
+    formFinalizarReserva
+      ?.querySelector(".campo-finalizar-quarto-id")
+      ?.setAttribute("value", quarto);
+    formFinalizarReserva
+      ?.querySelector(".campo-finalizar-checkin")
+      ?.setAttribute("value", entrada);
+    formFinalizarReserva
+      ?.querySelector(".campo-finalizar-checkout")
+      ?.setAttribute("value", saida);
+    formFinalizarReserva
+      ?.querySelector(".campo-finalizar-adultos")
+      ?.setAttribute("value", adultos);
+    formFinalizarReserva
+      ?.querySelector(".campo-finalizar-criancas")
+      ?.setAttribute("value", criancas);
+
+    mostrarModalHospede();
   });
 
-  // Fechar modais ao clicar fora deles
-  window.addEventListener("click", function (event) {
-    if (event.target === modalSucesso) {
-      esconderModal(modalSucesso);
-    }
-    if (event.target === modalErro) {
-      esconderModal(modalErro);
-    }
-  });
-
-  // Fechar modais com a tecla ESC
-  window.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      esconderModal(modalSucesso);
-      esconderModal(modalErro);
-    }
-  });
+  console.log("[SCRIPT] Listeners registrados");
 });
-
-// Validacão de e-mail Newsletter

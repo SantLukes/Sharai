@@ -6,6 +6,7 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 $nome_do_usuario_logado = $_SESSION['usuario_nome'];
 include '../includes/conexao.php';
+
 $sql = "SELECT
             r.id,
             r.data_checkin,
@@ -29,9 +30,7 @@ if ($resultado === false) {
     error_log("Erro SQL em reservas.php: " . $conn->error);
     $resultado = null;
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="PT-BR">
 
@@ -48,7 +47,7 @@ if ($resultado === false) {
     <div class="tela">
         <div class="menu-lateral">
             <img src="../assets/Imagem/sharai-logo.png" alt="Logo Sharan">
-            <a href="../index.php">Dashboard</a>
+            <a href="../sharan.php">Dashboard</a>
             <a href="quartos.php">Quartos</a>
             <a href="reservas.php" class="ativo">Reservas</a>
             <a href="usuarios.php">Usuários</a>
@@ -115,14 +114,15 @@ if ($resultado === false) {
                         ?>
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <div id="modalConfirmacaoOverlay" class="modal-overlay">
         <div class="modal-box">
             <div class="modal-header">
-                <h3>Confirmar Ação</h3> <button id="modalFecharBtn" class="modal-fechar">&times;</button>
+                <h3 id="modalTitulo">Confirmar Ação</h3>
+                <button id="modalFecharBtn" class="modal-fechar">&times;</button>
             </div>
             <div class="modal-body">
                 <p id="modalMensagem">Tem certeza que deseja continuar?</p>
@@ -133,6 +133,8 @@ if ($resultado === false) {
                 <a href="#" id="modalConfirmarBtn" class="btn-confirmar">Confirmar</a>
             </div>
         </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
