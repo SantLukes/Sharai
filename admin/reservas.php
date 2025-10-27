@@ -28,6 +28,7 @@ $resultado = $conn->query($sql);
 
 if ($resultado === false) {
     error_log("Erro SQL em reservas.php: " . $conn->error);
+    $erro_mensagem = "Ocorreu um problema ao carregar as reservas. Tente novamente mais tarde.";
     $resultado = null;
 }
 ?>

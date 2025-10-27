@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const tocados = new Set();
     let envioTentado = false;
 
-    // Máscaras
+    
     cpf.addEventListener("input", (e) => {
       let v = e.target.value.replace(/\D/g, "");
       v = v

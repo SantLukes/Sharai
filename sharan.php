@@ -248,7 +248,7 @@ if (isset($conn) && $conn) {
           <p>Never Miss Anything From Construx By Signing Up To Our Newsletter.</p>
         </div>
         <div>
-          <form action="actions/processa_newsletter.php" method="POST" class="input-footer" id="newsletter-form">
+          <form class="input-footer" id="newsletter-form">
             <input type="email" name="email" placeholder="DIGITE SEU EMAIL" />
             <div><button type="submit" class="botao-email-footer">ENVIAR</button></div>
           </form>
