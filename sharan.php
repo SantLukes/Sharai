@@ -313,31 +313,40 @@ if (isset($conn) && $conn) {
         <button class="modal-botao-fechar modal-fechar">&times;</button>
       </div>
       <div class="modal-corpo">
-        <form class="formulario-finalizar-reserva" action="actions/processa-reserva-cliente.php" method="POST">
+        <form class="formulario-finalizar-reserva" action="actions/processa-reserva-cliente.php" method="POST" novalidate>
           <input type="hidden" class="campo-finalizar-quarto-id" name="quarto_id">
           <input type="hidden" class="campo-finalizar-checkin" name="data_checkin">
           <input type="hidden" class="campo-finalizar-checkout" name="data_checkout">
           <input type="hidden" class="campo-finalizar-adultos" name="adultos">
           <input type="hidden" class="campo-finalizar-criancas" name="criancas">
+
           <div class="grupo-formulario">
             <label for="campo-nome-finalizar">Nome Completo</label>
-            <input type="text" class="campo-formulario campo-finalizar-nome" id="campo-nome-finalizar" name="hospede_nome">
+            <input type="text" id="campo-nome-finalizar" class="campo-formulario campo-finalizar-nome" name="hospede_nome" maxlength="80" autocomplete="off">
+            <span class="mensagem-erro">Nome obrigatório (somente letras).</span>
           </div>
+
           <div class="grupo-formulario">
             <label for="campo-cpf-finalizar">CPF</label>
-            <input type="text" class="campo-formulario campo-finalizar-cpf" id="campo-cpf-finalizar" name="hospede_cpf">
+            <input type="text" id="campo-cpf-finalizar" class="campo-formulario campo-finalizar-cpf" name="hospede_cpf" maxlength="14" autocomplete="off">
+            <span class="mensagem-erro">CPF inválido.</span>
           </div>
+
           <div class="grupo-formulario">
             <label for="campo-email-finalizar">E-mail</label>
-            <input type="email" class="campo-formulario campo-finalizar-email" id="campo-email-finalizar" name="hospede_email">
+            <input type="email" id="campo-email-finalizar" class="campo-formulario campo-finalizar-email" name="hospede_email" maxlength="100" autocomplete="off">
+            <span class="mensagem-erro">Digite um e-mail válido.</span>
           </div>
+
           <div class="grupo-formulario">
             <label for="campo-telefone-finalizar">Telefone</label>
-            <input type="tel" class="campo-formulario campo-finalizar-telefone" id="campo-telefone-finalizar" name="hospede_telefone">
+            <input type="tel" id="campo-telefone-finalizar" class="campo-formulario campo-finalizar-telefone" name="hospede_telefone" maxlength="15" autocomplete="off">
+            <span class="mensagem-erro">Telefone inválido.</span>
           </div>
+
           <div class="modal-rodape">
-            <button class="botao-cancelar modal-cancelar" type="button">Cancelar</button>
-            <button class="botao-confirmar modal-confirmar" type="submit">Confirmar Reserva</button>
+            <button type="button" class="botao-cancelar modal-cancelar">Cancelar</button>
+            <button type="submit" class="botao-confirmar modal-confirmar">Confirmar Reserva</button>
           </div>
         </form>
       </div>
@@ -350,7 +359,19 @@ if (isset($conn) && $conn) {
       <button class="botao-erro-fechar">OK</button>
     </div>
   </div>
-
+  <div class="modal-sucesso">
+    <div class="modal-caixa-sucesso">
+      <div class="icone-check">
+        <svg viewBox="0 0 52 52">
+          <circle class="check-circulo" cx="26" cy="26" r="25" fill="none" />
+          <path class="check-marca" fill="none" d="M14 27l7 7 17-17" />
+        </svg>
+      </div>
+      <h3>Reserva Confirmada!</h3>
+      <p class="mensagem-sucesso">Sua reserva foi realizada com sucesso 🎉</p>
+      <button class="botao-sucesso-fechar">OK</button>
+    </div>
+  </div>
   <script src="assets/js/script.js?v=20251027"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
