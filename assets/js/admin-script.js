@@ -195,6 +195,26 @@ document.addEventListener("DOMContentLoaded", function () {
       statusInput,
     ];
 
+    hospedeCpfInput?.addEventListener("input", (e) => {
+      let v = e.target.value.replace(/\D/g, "");
+      v = v
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+      e.target.value = v;
+    });
+    hospedeTelefoneInput?.addEventListener("input", (e) => {
+      let v = e.target.value.replace(/\D/g, "");
+      v = v
+        .replace(/^(\d{2})(\d)/, "($1) $2")
+        .replace(/(\d{5})(\d{4})$/, "$1-$2");
+      e.target.value = v;
+    });
+    hospedeNomeInput?.addEventListener("input", (e) => {
+      const regexInvalidos = /[^A-Za-zÀ-ÿ\s]/g;
+      e.target.value = e.target.value.replace(regexInvalidos, "");
+    });
+
     function showReservaError(input, message) {
       if (!input) return;
       input.classList.add("is-invalid");
@@ -212,6 +232,14 @@ document.addEventListener("DOMContentLoaded", function () {
             input.parentElement.querySelector(".invalid-feedback");
           if (feedback) {
             feedback.style.display = "none";
+            if (input.id === "hospede_nome")
+              feedback.textContent = "Nome completo é obrigatório.";
+            if (input.id === "hospede_cpf")
+              feedback.textContent = "CPF é obrigatório.";
+            if (input.id === "hospede_email")
+              feedback.textContent = "Digite um e-mail válido.";
+            if (input.id === "hospede_telefone")
+              feedback.textContent = "Telefone é obrigatório.";
             if (input.id === "data_checkout")
               feedback.textContent =
                 "Data de Check-out obrigatória e deve ser após o Check-in.";
@@ -219,11 +247,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     }
-    function isValidEmailReserva(email) {
+
+    function isValidEmailReservaAdmin(email) {
       const re =
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     }
+
+    function validarCPFAdmin(cpfStr) {
+      const s = cpfStr.replace(/\D/g, "");
+      if (s.length !== 11 || /^(\d)\1+$/.test(s)) return false;
+      let soma = 0;
+      for (let i = 0; i < 9; i++) soma += parseInt(s[i]) * (10 - i);
+      let resto = (soma * 10) % 11;
+      if (resto === 10 || resto === 11) resto = 0;
+      if (resto !== parseInt(s[9])) return false;
+      soma = 0;
+      for (let i = 0; i < 10; i++) soma += parseInt(s[i]) * (11 - i);
+      resto = (soma * 10) % 11;
+      if (resto === 10 || resto === 11) resto = 0;
+      return resto === parseInt(s[10]);
+    }
+
     formReserva.addEventListener("submit", function (event) {
       resetReservaErrors();
       let isValid = true;
@@ -240,25 +285,37 @@ document.addEventListener("DOMContentLoaded", function () {
       const criancas = criancasInput ? criancasInput.value : "";
       const status = statusInput ? statusInput.value : "";
 
+      const somenteLetras = /^[A-Za-zÀ-ÿ\s]+$/;
+
       if (nome === "") {
         isValid = false;
         showReservaError(hospedeNomeInput, "Nome obrigatório.");
+      } else if (nome.length < 2 || !somenteLetras.test(nome)) {
+        isValid = false;
+        showReservaError(hospedeNomeInput, "Nome inválido (somente letras).");
       }
       if (cpf === "") {
         isValid = false;
         showReservaError(hospedeCpfInput, "CPF obrigatório.");
+      } else if (!validarCPFAdmin(cpf)) {
+        isValid = false;
+        showReservaError(hospedeCpfInput, "CPF inválido.");
       }
       if (email === "") {
         isValid = false;
         showReservaError(hospedeEmailInput, "E-mail obrigatório.");
-      } else if (!isValidEmailReserva(email)) {
+      } else if (!isValidEmailReservaAdmin(email)) {
         isValid = false;
         showReservaError(hospedeEmailInput, "E-mail inválido.");
       }
-      if (telefone === "") {
+      if (telefone.replace(/\D/g, "").length < 10) {
         isValid = false;
-        showReservaError(hospedeTelefoneInput, "Telefone obrigatório.");
+        showReservaError(
+          hospedeTelefoneInput,
+          "Telefone inválido (mín. 10 dígitos)."
+        );
       }
+
       if (quartoId === "") {
         isValid = false;
         showReservaError(quartoIdInput, "Selecione quarto.");
@@ -314,6 +371,11 @@ document.addEventListener("DOMContentLoaded", function () {
       nivelAcessoInput,
     ];
 
+    nomeInput?.addEventListener("input", (e) => {
+      const regexInvalidos = /[^A-Za-zÀ-ÿ\s]/g;
+      e.target.value = e.target.value.replace(regexInvalidos, "");
+    });
+
     function showUsuarioError(input, message) {
       if (!input) return;
       input.classList.add("is-invalid");
@@ -331,6 +393,8 @@ document.addEventListener("DOMContentLoaded", function () {
             input.parentElement.querySelector(".invalid-feedback");
           if (feedback) {
             feedback.style.display = "none";
+            if (input.id === "nome")
+              feedback.textContent = "Nome completo é obrigatório.";
             if (input.id === "email")
               feedback.textContent = "Digite um e-mail válido.";
             if (input.id === "senha" && isEditForm)
@@ -346,6 +410,7 @@ document.addEventListener("DOMContentLoaded", function () {
         /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     }
+
     formUsuario.addEventListener("submit", function (event) {
       resetUsuarioErrors();
       let isValid = true;
@@ -354,10 +419,19 @@ document.addEventListener("DOMContentLoaded", function () {
       const senha = senhaInput ? senhaInput.value : "";
       const nivelAcesso = nivelAcessoInput ? nivelAcessoInput.value : "";
 
+      const somenteLetras = /^[A-Za-zÀ-ÿ\s]+$/;
+
       if (nome === "") {
         isValid = false;
         showUsuarioError(nomeInput, "Nome obrigatório.");
+      } else if (nome.length < 2 || !somenteLetras.test(nome)) {
+        isValid = false;
+        showUsuarioError(
+          nomeInput,
+          "Nome inválido (mín. 2 caracteres, só letras)."
+        );
       }
+
       if (email === "") {
         isValid = false;
         showUsuarioError(emailInput, "E-mail obrigatório.");
@@ -365,6 +439,7 @@ document.addEventListener("DOMContentLoaded", function () {
         isValid = false;
         showUsuarioError(emailInput, "E-mail inválido.");
       }
+
       if (!isEditForm) {
         if (senha === "") {
           isValid = false;
@@ -379,10 +454,12 @@ document.addEventListener("DOMContentLoaded", function () {
           showUsuarioError(senhaInput, "Nova senha: min 8 caracteres.");
         }
       }
+
       if (nivelAcesso === "") {
         isValid = false;
         showUsuarioError(nivelAcessoInput, "Selecione o nível.");
       }
+
       if (!isValid) event.preventDefault();
     });
   }
@@ -452,6 +529,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const ctxReservas = document.getElementById("chartReservas");
   const ctxUsuarios = document.getElementById("chartUsuarios");
   if (ctxQuartos || ctxReservas || ctxUsuarios) {
+    // ... (SEU CÓDIGO DOS GRÁFICOS - INALTERADO) ...
     const corPrimaria = "rgba(193, 155, 112, 0.8)";
     const chartOptions = {
       responsive: true,
