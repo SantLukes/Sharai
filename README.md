@@ -96,7 +96,7 @@ Siga estes 5 passos para rodar o projeto localmente.
 
 1.  No seu navegador, acesse o phpMyAdmin: `http://localhost/phpmyadmin`
 2.  Clique em **"Novo"** (ou "New") no menu à esquerda.
-3.  Digite o nome do banco de dados: `hotel_sharai`
+3.  Digite o nome do banco de dados: `Sharan-Hotel`
 4.  Clique em **"Criar"**.
 
 ### 5.4. Importe o "Dump" do SQL
