@@ -116,7 +116,7 @@ Se tudo correu bem, o sistema está pronto:
   Acesse: `http://localhost/Sharai/sharan.php`
 
 - **Para ver o Painel (Admin):**
-  Acesse: `http://localhost/Sharai/admin/`
+  Acesse: `http://localhost/Sharai/admin/login.php`
 
 ---
 
