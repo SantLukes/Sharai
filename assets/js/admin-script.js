@@ -529,7 +529,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const ctxReservas = document.getElementById("chartReservas");
   const ctxUsuarios = document.getElementById("chartUsuarios");
   if (ctxQuartos || ctxReservas || ctxUsuarios) {
-    // ... (SEU CÓDIGO DOS GRÁFICOS - INALTERADO) ...
     const corPrimaria = "rgba(193, 155, 112, 0.8)";
     const chartOptions = {
       responsive: true,
