@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql = "INSERT INTO quartos (numero, tipo, preco, descricao, ativo, `created_at`) VALUES (?, ?, ?, ?, ?, ?)";
 
             $stmt = $conn->prepare($sql);
-            $stmt->bind_param("sssiss", $numero, $tipo, $preco, $descricao, $ativo, $created_at);
+            $stmt->bind_param("ssssis", $numero, $tipo, $preco, $descricao, $ativo, $created_at);
             $stmt->execute();
             $stmt->close();
             $conn->close();
