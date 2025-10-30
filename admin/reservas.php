@@ -67,7 +67,7 @@ if ($resultado === false) {
             <div class="area-tabela">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h5>Lista de Reservas</h5>
-                    <a href="cadastro-reserva.php" class="btn btn-primary btn-sm botao-adicionar">+ Adicionar Nova</a>
+                    <a href="cadastro-reserva.php" class="btn btn-primary btn-sm botao-adicionar">+ Adicionar Novo</a>
                 </div>
 
                 <table class="table table-striped table-hover">
