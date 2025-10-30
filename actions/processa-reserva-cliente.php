@@ -1,15 +1,11 @@
 <?php
-
 require_once '../includes/conexao.php';
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     $hospede_nome = trim($_POST['hospede_nome'] ?? '');
     $hospede_cpf = trim($_POST['hospede_cpf'] ?? '');
     $hospede_email = trim($_POST['hospede_email'] ?? '');
     $hospede_telefone = trim($_POST['hospede_telefone'] ?? '');
-
 
     $quarto_id = filter_input(INPUT_POST, 'quarto_id', FILTER_VALIDATE_INT);
     $data_checkin = $_POST['data_checkin'] ?? '';
@@ -17,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $adultos = filter_input(INPUT_POST, 'adultos', FILTER_VALIDATE_INT) ?: 1;
     $criancas = filter_input(INPUT_POST, 'criancas', FILTER_VALIDATE_INT) ?: 0;
     $status = 'pendente';
-
 
     $erros = [];
     if (empty($hospede_nome)) $erros[] = "Nome inválido.";
@@ -29,18 +24,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($data_checkout)) $erros[] = "Data Check-out inválida.";
 
     if (!empty($erros)) {
-
         header('Location: ../sharan.php?erro=dados_invalidos');
         exit;
     }
-
 
     try {
         if (!$conn) {
             throw new Exception("Falha na conexão com o banco de dados.");
         }
-        $conn->begin_transaction();
 
+        $conn->begin_transaction();
 
         $hospede_id = null;
         $sql_hospede = "SELECT id FROM hospedes WHERE cpf = ? OR email = ?";
@@ -64,14 +57,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $stmt_hospede->close();
 
+        $sql_verifica = "
+            SELECT COUNT(*) AS total
+            FROM reservas
+            WHERE quarto_id = ?
+            AND status IN ('pendente', 'confirmada', 'checkin')
+            AND (
+                ? < data_checkout   -- O novo check-in é ANTES do check-out existente
+                AND
+                ? > data_checkin    -- O novo check-out é DEPOIS do check-in existente
+            )
+        ";
 
-        $sql_reserva = "INSERT INTO reservas (quarto_id, hospede_id, data_checkin, data_checkout, adultos, criancas, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt_verifica = $conn->prepare($sql_verifica);
+        if ($stmt_verifica === false) throw new Exception("Erro ao preparar verificação de conflito: " . $conn->error);
+
+        $stmt_verifica->bind_param(
+            "iss",
+            $quarto_id,
+            $data_checkin,
+            $data_checkout
+        );
+
+        $stmt_verifica->execute();
+        $resultado_verifica = $stmt_verifica->get_result();
+        $reserva_existente = $resultado_verifica->fetch_assoc();
+        $stmt_verifica->close();
+
+        if ($reserva_existente['total'] > 0) {
+            header('Location: ../sharan.php?erro=quarto_ocupado');
+            exit();
+        }
+
+        $sql_reserva = "INSERT INTO reservas (quarto_id, hospede_id, data_checkin, data_checkout, adultos, criancas, status)
+                        VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt_reserva = $conn->prepare($sql_reserva);
         if ($stmt_reserva === false) throw new Exception("Erro prepare reserva insert: " . $conn->error);
         $stmt_reserva->bind_param("iisssis", $quarto_id, $hospede_id, $data_checkin, $data_checkout, $adultos, $criancas, $status);
         if (!$stmt_reserva->execute()) throw new Exception("Erro execute reserva insert: " . $stmt_reserva->error);
         $stmt_reserva->close();
-
 
         $conn->commit();
 
@@ -80,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } catch (Exception $e) {
         if ($conn) $conn->rollback();
         error_log("Erro ao processar reserva do cliente: " . $e->getMessage());
-        header('Location: ../sharan.php?erro=reserva');
+        header('Location: ../sharan.php?erro=generico');
         exit();
     } finally {
         if (isset($conn) && $conn->ping()) {

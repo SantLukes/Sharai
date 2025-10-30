@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario_id = filter_input(INPUT_POST, 'usuario_id', FILTER_VALIDATE_INT);
     $nome = trim($_POST['nome'] ?? '');
     $email = trim($_POST['email'] ?? '');
-    $nova_senha_pura = $_POST['senha'] ?? ''; // Pode estar VAZIA
+    $nova_senha_pura = $_POST['senha'] ?? ''; 
     $nivel_acesso = $_POST['nivel_acesso'] ?? 'funcionario';
 
     $erros = [];

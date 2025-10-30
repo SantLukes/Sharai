@@ -6,15 +6,17 @@
 
 .container-footer {
   padding-top: 50px;
-  padding-bottom: 10px;
+  padding-bottom: 63px;
   display: flex;
-  margin: auto;
-  width: fit-content;
+  margin: 0 auto;
+  width: 1146px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .footer-initial-text {
   width: 561px;
-  height: 56px;
+  height: auto;
   border-right: 1px solid #dddddd;
 }
 
@@ -43,14 +45,14 @@
 .input-footer {
   display: flex;
   overflow: hidden;
-  padding-bottom: 60px;
+  padding-bottom: 0;
 }
 
 .input-footer input {
   width: 455px;
   height: 51px;
   border: 1px solid #eeeeee;
-  margin-left: 25px;
+  margin-left: 0;
   padding-left: 13px;
   height: 53px;
 }
@@ -103,7 +105,7 @@
   width: 90%;
   max-width: 450px;
   text-align: center;
-  position: relative; /*botão fechar */
+  position: relative;
 }
 
 .modal-content h3 {
@@ -161,15 +163,14 @@
 
 .container-desc-footer {
   display: flex;
-  justify-content: center;
-  margin-bottom: 0;
-  gap: 24px;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 1146px;
+  padding-top: 30px;
   padding-bottom: 30px;
 }
 
 .desc-footer {
-  /* margin-left: -60px; */
-  /* margin-right: 13px; */
 }
 
 .desc-footer img {
@@ -186,7 +187,7 @@
   line-height: 20px;
   letter-spacing: 0%;
   color: #999999;
-  padding-right: 40px;
+  padding-right: 0;
 }
 
 .footer-icons a img {
@@ -196,10 +197,12 @@
 }
 
 .desc-footer-links {
-  padding-right: 238px;
+  padding-right: 0;
 }
 
-.desc-footer-links h4 {
+.desc-footer-links h4,
+.desc-footer-acomodacoes h4,
+.desc-footer-faleconosco h4 {
   font-family: "DM Serif Text";
   font-weight: 400;
   font-size: 20px;
@@ -210,12 +213,22 @@
   margin-top: 30px;
 }
 
-.desc-footer-links ul li {
+.desc-footer-links ul,
+.desc-footer-acomodacoes ul,
+.desc-footer-faleconosco ul {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.desc-footer-links ul li,
+.desc-footer-acomodacoes ul li,
+.desc-footer-faleconosco ul li {
   list-style: none;
   margin-bottom: 12px;
 }
 
-.desc-footer-links ul li a {
+.desc-footer-links ul li a,
+.desc-footer-acomodacoes ul li a {
   text-decoration: none;
   font: "Roboto";
   font-weight: 400;
@@ -226,7 +239,7 @@
 }
 
 .desc-footer-acomodacoes {
-  padding-right: 120px;
+  padding-right: 0;
 }
 
 .desc-footer-acomodacoes h4 {

@@ -1,12 +1,10 @@
-/* ======== GERAL ======== */
-
 .logo-login {
 }
 
 .logo-login img {
-  position: absolute; /* <-- ADICIONE ISSO */
-  top: 40px; /* <-- ADICIONE ISSO (distância do topo) */
-  left: 50%; /* <-- ADICIONE ISSO (centraliza na horizontal) */
+  position: absolute;
+  top: 40px;
+  left: 50%;
   transform: translateX(-50%);
 }
 
@@ -21,8 +19,8 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Isso agora vai centralizar SÓ o texto */
-  align-items: center; /* Isso agora vai centralizar SÓ o texto */
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 40px;
   position: relative;
@@ -75,25 +73,7 @@
   background-color: #a07e5e;
 }
 
-/* ======== RODAPÉ ======== */
 .texto-rodape {
   font-size: 13px;
   color: #666;
-}
-
-/* ======== RESPONSIVO ======== */
-@media (max-width: 768px) {
-  .tela-login {
-    flex-direction: column;
-  }
-
-  .lado-esquerdo,
-  .lado-direito {
-    width: 100%;
-    height: 50%;
-  }
-
-  .lado-esquerdo {
-    padding: 30px 15px;
-  }
 }

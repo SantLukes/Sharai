@@ -1,6 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
   console.log("[SCRIPT] Iniciado");
 
+  if (
+    typeof flatpickr !== "undefined" &&
+    typeof datasReservadasPorQuarto !== "undefined"
+  ) {
+    const campoEntrada = document.getElementById("reserva-entrada");
+    const campoSaida = document.getElementById("reserva-saida");
+    const selectQuarto = document.getElementById("reserva-quarto");
+
+    let instanciaEntrada, instanciaSaida;
+
+    // --------------------- Função que inicializa os calendários ---------------------
+    function inicializarCalendarios(datasBloqueadas = []) {
+      if (instanciaEntrada) instanciaEntrada.destroy();
+      if (instanciaSaida) instanciaSaida.destroy();
+
+      instanciaEntrada = flatpickr(campoEntrada, {
+        dateFormat: "Y-m-d",
+        locale: "pt",
+        disable: datasBloqueadas,
+        minDate: "today",
+        showMonths: 2,
+        onChange: function (datasSelecionadas) {
+          if (datasSelecionadas.length > 0) {
+            const dataCheckin = datasSelecionadas[0];
+
+            let dataMinimaSaida = new Date(dataCheckin);
+
+            dataMinimaSaida.setDate(dataMinimaSaida.getDate() + 1);
+
+            instanciaSaida.set("minDate", dataMinimaSaida);
+
+            instanciaSaida.open();
+          }
+        },
+      });
+
+      instanciaSaida = flatpickr(campoSaida, {
+        dateFormat: "Y-m-d",
+        locale: "pt",
+        disable: datasBloqueadas,
+        minDate: "today",
+        showMonths: 2,
+      });
+    }
+    selectQuarto?.addEventListener("change", () => {
+      const idQuarto = selectQuarto.value;
+      const datasBloqueadas = datasReservadasPorQuarto[idQuarto] || [];
+      inicializarCalendarios(datasBloqueadas);
+    });
+
+    inicializarCalendarios();
+  } else {
+    console.warn(
+      "[FLATPICKR] Flatpickr ou datasReservadasPorQuarto não encontrados."
+    );
+  }
+
   // --------------------- ELEMENTOS PRINCIPAIS ---------------------
   const botaoVerificar = document.getElementById(
     "botao-verificar-disponibilidade"
@@ -96,6 +153,34 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    const datasBloqueadasDoQuarto = datasReservadasPorQuarto[quarto] || [];
+
+    if (datasBloqueadasDoQuarto.length > 0) {
+      let dataAtual = new Date(checkin);
+      let conflitoEncontrado = false;
+
+      while (dataAtual < checkout) {
+        const ano = dataAtual.getFullYear();
+        const mes = String(dataAtual.getMonth() + 1).padStart(2, "0");
+        const dia = String(dataAtual.getDate()).padStart(2, "0");
+        const dataString = `${ano}-${mes}-${dia}`;
+
+        if (datasReservadasPorQuarto[quarto].includes(dataString)) {
+          conflitoEncontrado = true;
+          break;
+        }
+
+        dataAtual.setDate(dataAtual.getDate() + 1);
+      }
+
+      if (conflitoEncontrado) {
+        mostrarErro(
+          "Datas indisponíveis! O quarto selecionado já está reservado para o período escolhido. Por favor, ajuste as datas ou escolha outro quarto."
+        );
+        return;
+      }
+    }
+
     formFinalizarReserva
       ?.querySelector(".campo-finalizar-quarto-id")
       ?.setAttribute("value", quarto);
@@ -129,7 +214,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const tocados = new Set();
     let envioTentado = false;
 
-    
     cpf.addEventListener("input", (e) => {
       let v = e.target.value.replace(/\D/g, "");
       v = v
@@ -148,7 +232,11 @@ document.addEventListener("DOMContentLoaded", function () {
       validarCampos();
     });
     nome.addEventListener("input", (e) => {
-      e.target.value = e.target.value.replace(/[0-9]/g, "");
+  
+      const regexInvalidos = /[^A-Za-zÀ-ÿ\s]/g;
+
+      e.target.value = e.target.value.replace(regexInvalidos, ""); 
+      
       validarCampos();
     });
     email.addEventListener("input", validarCampos);

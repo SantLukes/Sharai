@@ -1,7 +1,10 @@
 <?php
 include_once 'includes/conexao.php';
 $quartos_para_reserva = [];
+$datas_reservadas_por_quarto = [];
+
 if (isset($conn) && $conn) {
+  
   $sql_quartos_res = "SELECT id, numero, tipo FROM quartos WHERE ativo = 1 ORDER BY numero ASC";
   $resultado_quartos_res = $conn->query($sql_quartos_res);
   if ($resultado_quartos_res && $resultado_quartos_res->num_rows > 0) {
@@ -9,6 +12,23 @@ if (isset($conn) && $conn) {
       $quartos_para_reserva[] = $quarto_res;
     }
   }
+
+  $sql_datas = "SELECT quarto_id, data_checkin, data_checkout 
+                FROM reservas 
+                WHERE status IN ('pendente', 'confirmada', 'checkin')";
+  $resultado_datas = $conn->query($sql_datas);
+  if ($resultado_datas && $resultado_datas->num_rows > 0) {
+    while ($row = $resultado_datas->fetch_assoc()) {
+      $inicio = new DateTime($row['data_checkin']);
+      $fim = new DateTime($row['data_checkout']);
+
+      while ($inicio < $fim) {
+        $datas_reservadas_por_quarto[$row['quarto_id']][] = $inicio->format('Y-m-d');
+        $inicio->modify('+1 day');
+      }
+    }
+  }
+
   $conn->close();
 } else {
   error_log("Erro de conexão no sharan.php ao buscar quartos.");
@@ -37,6 +57,11 @@ if (isset($conn) && $conn) {
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
     crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/styles/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script>
+    const datasReservadasPorQuarto = <?php echo json_encode($datas_reservadas_por_quarto); ?>;
+  </script>
+
 </head>
 
 <body>
@@ -48,11 +73,11 @@ if (isset($conn) && $conn) {
           alt="logo sharai"
           class="logo-sharan" />
         <ul class="nav-menu">
-          <li><a href="sharan.php" class="menu-home">HOME</a></li>
+          <li><a href="#" class="menu-home">HOME</a></li>
           <li><a href="#">POST DETAIL</a></li>
           <li><a href="#">PAGES</a></li>
           <li><a href="#">PROJECTS</a></li>
-          <li><a href="admin/quartos.php">SHORTCODES</a></li>
+          <li><a href="#">SHORTCODES</a></li>
         </ul>
       </div>
     </div>
@@ -64,8 +89,10 @@ if (isset($conn) && $conn) {
         <div class="entrada-saida">
           <p class="text-checkbox">Entrada/Saída</p>
           <div class="input-entrada-saida">
-            <input type="date" id="reserva-entrada" name="entrada" placeholder="Data de Entrada" />
-            <input type="date" id="reserva-saida" name="saida" placeholder="Data de Saída" />
+
+            <input type="text" id="reserva-entrada" name="entrada" placeholder="Data de Entrada" />
+            <input type="text" id="reserva-saida" name="saida" placeholder="Data de Saída" />
+
           </div>
           <div class="error-message" id="error-data"></div>
         </div>
@@ -352,9 +379,10 @@ if (isset($conn) && $conn) {
       </div>
     </div>
   </div>
+
   <div class="modal-sobreposicao modal-erro">
     <div class="modal-caixa-erro">
-      <h3>⚠️ Atenção</h3>
+      <h3>Atenção</h3>
       <p class="mensagem-erro">Preencha todos os campos antes de continuar!</p>
       <button class="botao-erro-fechar">OK</button>
     </div>
@@ -372,8 +400,12 @@ if (isset($conn) && $conn) {
       <button class="botao-sucesso-fechar">OK</button>
     </div>
   </div>
+
   <script src="assets/js/script.js?v=20251027"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/pt.js"></script>
+
 </body>
 
 </html>

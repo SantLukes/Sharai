@@ -9,7 +9,6 @@ body {
   background-image: url("../Imagem/banner.png");
   background-repeat: no-repeat;
   background-size: cover;
-  /* height: 1200px; */
   max-width: 1920px;
   margin: 0 auto;
   background-position: center;
@@ -25,25 +24,26 @@ body {
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .logo-sharan {
-  /* width: 135.25px; */
-  /* height: 27.97px; */
   height: 36px;
   width: 174px;
-  margin-top: auto;
 }
 
 .nav-menu {
-  list-style: none; /* Remove as bolinhas  */
+  list-style: none;
   display: flex;
-  padding-top: 36px;
   line-height: 18px;
   letter-spacing: 2px;
   font-size: 12px;
   font-weight: 500;
   color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-menu li:hover {

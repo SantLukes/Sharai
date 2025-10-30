@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   gap: 12px;
+  padding-bottom: 139px; 
 }
 
 .texto-sobre h1 {

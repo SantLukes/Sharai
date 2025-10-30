@@ -4,12 +4,10 @@ body {
   background-color: #f8f9fa;
 }
 
-/* CONTAINER PRINCIPAL */
 .tela {
   display: flex;
 }
 
-/* MENU LATERAL */
 .menu-lateral {
   width: 220px;
   height: 100vh;
@@ -38,19 +36,16 @@ body {
   background-color: #495057;
 }
 
-/* Destaca o link atual */
 .menu-lateral a.ativo {
   background-color: #0d6efd;
 }
 
-/* CONTEÚDO PRINCIPAL */
 .conteudo {
   margin-left: 220px;
   padding: 20px;
   width: 100%;
 }
 
-/* TOPO */
 .topo {
   display: flex;
   justify-content: space-between;
@@ -61,7 +56,6 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* ÁREA DA TABELA */
 .area-tabela {
   background-color: white;
   margin-top: 20px;
@@ -70,7 +64,6 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* CAIXAS DO DASHBOARD */
 .caixa-info {
   border-radius: 8px;
   padding: 20px;

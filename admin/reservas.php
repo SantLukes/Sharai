@@ -48,7 +48,7 @@ if ($resultado === false) {
     <div class="tela">
         <div class="menu-lateral">
             <img src="../assets/Imagem/sharai-logo.png" alt="Logo Sharan">
-            <a href="../sharan.php">Dashboard</a>
+            <a href="../index.php">Dashboard</a>
             <a href="quartos.php">Quartos</a>
             <a href="reservas.php" class="ativo">Reservas</a>
             <a href="usuarios.php">Usuários</a>
